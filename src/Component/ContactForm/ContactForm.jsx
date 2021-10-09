@@ -3,21 +3,21 @@ import { v4 as uuidv4 } from 'uuid';
 import { Label, Button, Input } from './ContactForm.styled';
 
 class ContactForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+  // state = {
+  //   name: '',
+  //   number: '',
+  // };
 
   nameInputId = uuidv4();
   numberInputId = uuidv4();
 
-  handleChange = event => {
-    const { name, value } = event.currentTarget;
+  // handleChange = event => {
+  //   const { name, value } = event.currentTarget;
 
-    this.setState({
-      [name]: value,
-    });
-  };
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // };
 
   handleSubmit = event => {
     event.preventDefault();
