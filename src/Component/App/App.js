@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+
 import ContactForm from '../ContactForm/ContactForm';
 import Filter from '../Filter/Filter';
 import ContactList from '../ContactList/ContactList';
@@ -24,14 +24,14 @@ export default function App() {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
-  const addContact = data => {
-    const contact = {
-      id: uuidv4(),
-      name: data.name,
-      number: data.number,
-    };
-    setContacts(s => [...contacts, contact]);
-  };
+  // const addContact = data => {
+  //   const contact = {
+  //     id: uuidv4(),
+  //     name: data.name,
+  //     number: data.number,
+  //   };
+  //   setContacts(s => [...contacts, contact]);
+  // };
 
   const getVisibleList = useCallback(() => {
     const normalisedFilter = filter.toLowerCase();
@@ -47,7 +47,7 @@ export default function App() {
   return (
     <Container>
       <Title>Phonebook</Title>
-      <ContactForm propSubmit={addContact} />
+      <ContactForm />
       <h2>Contacts</h2>
       <p>Find contacts by name</p>
       <Filter value={filter} onChange={setFilter} />
