@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD, DELETE } from './types';
+import { ADD, DELETE, FILTER } from './types';
 
 const reducer = (state = [], { type, payload }) => {
   console.log(payload);
@@ -8,8 +8,17 @@ const reducer = (state = [], { type, payload }) => {
     case ADD:
       return [...state, payload];
     case DELETE:
-      return state.filter(contact => contact.id !== payload.id);
+      return state.filter(({ id }) => id !== payload);
 
+    default:
+      return state;
+  }
+};
+
+const filter = (state = '', { type, payload }) => {
+  switch (type) {
+    case FILTER:
+      return payload;
     default:
       return state;
   }
@@ -17,4 +26,5 @@ const reducer = (state = [], { type, payload }) => {
 
 export default combineReducers({
   contacts: reducer,
+  filter,
 });
