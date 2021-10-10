@@ -73,15 +73,15 @@ import { Label, Button, Input } from './ContactForm.styled';
     </div>
   );
  }
-const mapStateToProps = state => ({
-  items: state.contacts.items,  
-})
+// const mapStateToProps = state => ({
+//   items: state.contacts.items,  
+// })
 
 const mapDispatchToProps = (dispatch) =>({
   propSubmit: value => dispatch(actions.addContact(value)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
+export default connect(null, mapDispatchToProps)(ContactForm);
 
 ContactForm.propTypes = {
   propSubmit: PropTypes.func,
