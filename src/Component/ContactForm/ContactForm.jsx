@@ -73,9 +73,7 @@ import { Label, Button, Input } from './ContactForm.styled';
     </div>
   );
  }
-// const mapStateToProps = state => ({
-//   items: state.contacts.items,  
-// })
+
 
 const mapDispatchToProps = (dispatch) =>({
   propSubmit: value => dispatch(actions.addContact(value)),

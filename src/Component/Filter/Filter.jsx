@@ -14,7 +14,8 @@ const Filter = ({ value, onChange }) => (
 );
 const mapStateToProps = (state) => ({
   value: state.contacts.filter,
-})
+});
+
 const mapDispatchToProps = dispatch => ({
   onChange: (event) => dispatch(actions.filterContact(event.currentTarget.value))
     

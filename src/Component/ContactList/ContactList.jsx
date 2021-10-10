@@ -16,10 +16,19 @@ const ContactList = ({ contacts, onDelete }) => {
     </List>
   );
 };
+const getVisibleList = (allContacts, filter) => {
+  const normalisedFilter = filter.toLowerCase();
+  
+  return allContacts.filter(({ name }) =>
+    name.toLowerCase().includes(normalisedFilter),
+   );
+  };
 
 
-
-const mapStateToProps = state => ({contacts: state.contacts.contacts });
+const mapStateToProps = ({ contacts: { contacts, filter }}) => ({
+  contacts: getVisibleList(contacts, filter),
+  
+});
 
 const mapDispatchToProps = dispatch => ({
   onDelete: (value) => dispatch(actions.deleteContact(value))

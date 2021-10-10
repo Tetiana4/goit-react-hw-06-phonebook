@@ -2,8 +2,8 @@ import { combineReducers } from 'redux';
 import { ADD, DELETE, FILTER } from './types';
 
 const reducer = (state = [], { type, payload }) => {
-  console.log(payload);
-  console.log('log: ', payload);
+  // console.log(payload);
+  // console.log('log: ', payload);
   switch (type) {
     case ADD:
       return [...state, payload];
