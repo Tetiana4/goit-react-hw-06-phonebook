@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from "../../redux/actions";
 import { List, ListItem, Button } from './ContactList.styled';
+import { getVisibleList } from '../../redux/selectors';
 
-const getVisibleList = (allContacts, filter) => {
-  const normalisedFilter = filter.toLowerCase();
-  
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalisedFilter),
-   );
-};
+
   
 const ContactList = () => {
-  const contacts = useSelector(state => getVisibleList(state.contacts.contacts, state.contacts.filter));
+  // const contacts = useSelector(state => getVisibleList(state.contacts.contacts, state.contacts.filter));
+  const contacts = useSelector(getVisibleList);
   const dispatch = useDispatch();
   const onDelete = (id) => dispatch(actions.deleteContact(id));
 
