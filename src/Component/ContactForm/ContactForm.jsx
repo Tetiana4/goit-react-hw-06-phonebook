@@ -1,17 +1,20 @@
 import { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import * as actions from "../../redux/actions";
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import * as actions from "../../redux/actions";
 import { Label, Button, Input } from './ContactForm.styled';
 
- function ContactForm({items, propSubmit }) {
+ function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const nameInputId = uuidv4();
   const numberInputId = uuidv4();
 
+  const dispatch = useDispatch();
+  const propSubmit = value => dispatch(actions.addContact(value));
+   
   const handleChange = event => {
     const { name, value } = event.currentTarget;
     switch (name) {
@@ -74,13 +77,19 @@ import { Label, Button, Input } from './ContactForm.styled';
   );
  }
 
+export default ContactForm;
 
-const mapDispatchToProps = (dispatch) =>({
-  propSubmit: value => dispatch(actions.addContact(value)),
-})
-
-export default connect(null, mapDispatchToProps)(ContactForm);
 
 ContactForm.propTypes = {
   propSubmit: PropTypes.func,
 };
+
+
+
+// redux
+
+// const mapDispatchToProps = (dispatch) =>({
+//   propSubmit: value => dispatch(actions.addContact(value)),
+// })
+
+// export default connect(null, mapDispatchToProps)(ContactForm);

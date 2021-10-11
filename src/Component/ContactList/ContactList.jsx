@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from "../../redux/actions";
-import { List, ListItem, Button } from './ContactList.styled';
 import { getVisibleList } from '../../redux/selectors';
-
+import { List, ListItem, Button } from './ContactList.styled';
 
   
 const ContactList = () => {
-  // const contacts = useSelector(state => getVisibleList(state.contacts.contacts, state.contacts.filter));
   const contacts = useSelector(getVisibleList);
   const dispatch = useDispatch();
   const onDelete = (id) => dispatch(actions.deleteContact(id));
