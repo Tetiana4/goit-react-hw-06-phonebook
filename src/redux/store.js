@@ -40,6 +40,7 @@ const persistor = persistStore(store);
 export default { store, persistor };
 
 // redux
+
 //  const rootReducer = combineReducers({
 //   contacts: reducer,
 // });
