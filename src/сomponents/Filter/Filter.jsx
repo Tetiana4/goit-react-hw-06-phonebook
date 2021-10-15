@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as actions from '../../redux/actions';
-import { getFilter } from '../../redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { getFilter } from '../../redux/selectors';
+import * as actions from '../../redux/actions';
 
 const Filter = () => {
   const value = useSelector(getFilter);

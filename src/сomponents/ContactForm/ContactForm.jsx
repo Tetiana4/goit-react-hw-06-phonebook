@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import * as actions from "../../redux/actions";
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import * as actions from "../../redux/actions";
 import { Label, Button, Input } from './ContactForm.styled';
 
  function ContactForm() {
