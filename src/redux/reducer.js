@@ -9,7 +9,7 @@ const reducer = createReducer([], {
 });
 
 const filter = createReducer('', {
-  [actions.filterContact]: (state, { payload }) => payload,
+  [actions.filterContact]: (_state, { payload }) => payload,
 });
 
 export default combineReducers({
